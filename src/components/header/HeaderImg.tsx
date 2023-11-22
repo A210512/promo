@@ -18,7 +18,7 @@ const HeaderImg = () => {
 
   return (
     <>
-      <img src={isMobile ? '/mobileHeader.svg' : '/header.svg'} className="w-[100vh] md:w-auto" />
+      <img src={isMobile ? '/mobileHeader.svg' : '/header.svg'} alt='' className="w-[100vh] md:w-auto" />
     </>
   );
 };

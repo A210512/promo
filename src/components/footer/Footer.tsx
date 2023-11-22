@@ -20,7 +20,7 @@ const Footer = () => {
             </div>
             </div>
             <div>
-            <img src="/footerImg.svg"  className='hidden xl:block'/>
+            <img src="/footerImg.svg" alt=''  className='hidden xl:block'/>
             </div>
             </div>
         </div>

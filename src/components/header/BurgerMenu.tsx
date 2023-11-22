@@ -16,9 +16,9 @@ const BurgerMenu = () => {
     return (
         <>
             <div className="h-[40px] lg:h-[58px] w-full flex justify-between items-center p-5 bg-white">
-                <img src="/burger.svg" className="w-[26px] h-[10px] md:w-auto md:h-auto cursor-pointer" onClick={handleMenuToggle} />
-                <img src="/logo.svg" className="md:w-auto md:h-auto w-[69px] h-[16px] cursor-pointer absolute left-0 right-0 mx-auto" />
-                <img src="/chat.svg" className="w-[30px] h-[30px] md:w-auto md:h-auto cursor-pointer" />
+                <img src="/burger.svg" alt='' className="w-[26px] h-[10px] md:w-auto md:h-auto cursor-pointer" onClick={handleMenuToggle} />
+                <img src="/logo.svg" alt='' className="md:w-auto md:h-auto w-[69px] h-[16px] cursor-pointer absolute left-0 right-0 mx-auto" />
+                <img src="/chat.svg" alt='' className="w-[30px] h-[30px] md:w-auto md:h-auto cursor-pointer" />
             </div>
             {isMenuOpen && (
                 <div className='z-10 w-full h-auto bg-white flex flex-col'>
