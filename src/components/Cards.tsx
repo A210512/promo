@@ -1,5 +1,16 @@
 'use client'
+import Image from 'next/image';
 import React from 'react'
+
+{/* <Image
+src={item.img}
+width="0"
+height="0"
+sizes="100vw"
+alt=''
+style={{ width: '100%', height: 'auto' }}
+
+/> */}
 
 const Cards = ({ name, data, cols }: { name: any, data: any, cols: number}) => {
   const [showAllModels, setShowAllModels] = React.useState(false);
@@ -17,47 +28,38 @@ const Cards = ({ name, data, cols }: { name: any, data: any, cols: number}) => {
     };
   }, []);
   const combineProducts = (data: any[]) => {
-    // Используем объект для группировки товаров по sku
     const groupedProducts: { [sku: string]: any } = {};
-  
-    // Обходим исходный массив товаров
+
     data.forEach((item) => {
       const { sku, sizeEU } = item;
-  
-      // Если у нас уже есть товар с таким sku
+
       if (groupedProducts[sku]) {
-        // Проверяем, чтобы размер не дублировался
         if (!groupedProducts[sku].sizeEU.includes(sizeEU)) {
           groupedProducts[sku].sizeEU.push(sizeEU);
         }
       } else {
-        // Если товара с таким sku еще нет, создаем новую запись
         groupedProducts[sku] = { ...item, sizeEU: [sizeEU] };
       }
     });
-  
-    // Преобразуем объект обратно в массив
+
     const combinedData = Object.values(groupedProducts);
   
     return combinedData;
   };
-  
-  // Применяем функцию объединения данных
+
   const combinedData = combineProducts(data);
   const commonCardJSX = (item: any, index: any) => (
 <div className='flex flex-col items-center' key={index}>
-  <div className='w-auto h-auto bg-white flex justify-center'>
     <img src={item.img ? item.img : '/noimage.png'} />
-  </div>
-  <div className="flex flex-col justify-between items-center h-[80px] md:h-auto">
-    <p className='cardsText lg:text-lg text-xs text-center h-8 lg:h-12'>{item.modelName}</p>
-    <div>
-    <p className='priceText lg:text-lg text-xs text-center'>От {item.salePrice}₽</p>
+  <div className="flex flex-col items-center h-auto md:h-auto">
+    <p className='cardsText lg:text-lg text-[10px] text-center h-auto w-[85%]'>{item.modelName}</p>
+    <div className=''>
+    <p className='priceText lg:text-lg text-xs text-center'>{item.salePrice} ₽</p>
     <div className="w-full h-auto flex flex-row justify-center items-start">
-      <div className="left-0 top-[7px]  text-black text-xl font-normal font-['Open Sans'] leading-3 font-bold p-1">EU</div>
-      <div className='flex flex-wrap'>
+      <div className="left-0 top-[7px]  text-black text-xs lg:text-xl font-normal font-['Open Sans'] leading-3 font-bold p-1">EU</div>
+      <div className='flex flex-wrap gap-1 xl:gap-2'>
         {item.sizeEU.map((size: any, index: number) => (
-          <div key={index} className="left-[27px] top-[5px]  text-black text-xs font-normal font-['Open Sans']  border border-neutral-200 leading-none p-1">{size}</div>
+          <div key={index} className="left-[27px] top-[5px] text-black text-xs lg:text-xl font-normal font-['Open Sans']  border border-neutral-200 leading-none p-1 ">{size}</div>
         ))}
       </div>
       </div>

@@ -22,28 +22,26 @@ export default async function Home() {
   const mostFavData = filteredData.filter((item: any) => (
     item.mostFav === "TRUE"
   ))
+  const bigSaleData = filteredData.filter((item: any) => (
+    item.bigSale === "TRUE"
+  ))
   const brands = ["Adidas", "Jordan", "Nike", "New Balance", "UGG", "Yeezy"];
   return (
     <>
       <Header />
-      <main className='w-auto mx-[17px] mt-5 xl:mx-[200px] xl:mt-[120px] scroll-smooth'>
+      <main className='w-auto mx-[17px] mt-5 xl:mx-[200px] xl:mt-[120px] scroll-smooth bg-white'>
+        <div>
         <Brands />
         <Cards name={"Most Popular"} data={mostFavData} cols={3} />
-        <Cards name={"Sale 70%"} data={mostFavData} cols={3}/>
-        <div className='mx-[-17px] xl:mx-[-200px] bg-white'>
+        <Cards name={"Sale 70%"} data={bigSaleData} cols={3}/>
         {brands.map((brandName, index) => {
   const brandData = filteredData.filter((item: any) => item.type.includes(brandName));
-  const cols = index % 2 === 0 ? 4 : 3;
-
+  const cols = index % 2 === 0 ? 3 : 4;
   return (
-    <div key={index} className='mx-[17px] xl:mx-[200px]'>
-      <div className='pt-1 xl:pt-6'>
-        <Cards name={brandName} data={brandData} cols={cols} />
-      </div>
-    </div>
+        <Cards key={index} name={brandName} data={brandData} cols={cols} />
   );
 })}
-        </div>
+</div>
       </main>
       <Footer />
       <Phone />
