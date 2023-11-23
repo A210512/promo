@@ -22,7 +22,7 @@ const Brands = () => {
         <a href="#New Balance" className='border border-[#E4E4E4] flex justify-center p-5'>
             <img src="/brands/nb.svg"  className='xl:w-[85px] xl:h-[76px] w-[54px] h-[48px]'/>
         </a>
-        <a href="#Ugg" className='border border-[#E4E4E4] flex justify-center p-5'>
+        <a href="#UGG" className='border border-[#E4E4E4] flex justify-center p-5'>
             <img src="/brands/ugg.svg"  className='xl:w-[85px] xl:h-[76px] w-[54px] h-[48px]'/>
         </a>
       </div>

@@ -33,7 +33,7 @@ const BurgerMenu = () => {
                     <div className="w-auto h-px mt-[10px] mb-[5px] border border-neutral-200"></div>
                     <a href='#Yeezy' className="block text-center text-black text-3xl font-semibold fursNeue  leading-loose">Yeezy</a>
                     <div className="w-auto h-px mt-[10px] mb-[5px] border border-neutral-200"></div>
-                    <a href='#Ugg' className="block text-center text-black text-3xl font-semibold fursNeue  leading-loose">Ugg</a>
+                    <a href='#UGG' className="block text-center text-black text-3xl font-semibold fursNeue  leading-loose">Ugg</a>
                     <div className="w-auto h-px mt-[10px] mb-[5px] border border-neutral-200"></div>
                     <div className='w-full h-auto flex justify-center flex-col xl:flex-row items-center xl:mb-[120px] mb-0'>
                         <div className="w-72  h-12 xl:w-[276px] xl:h-[75px]  bg-black mt-5 mx-[46px] xl:mx-[20px] flex justify-center items-center ">

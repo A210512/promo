@@ -22,7 +22,7 @@ export default async function Home() {
   const mostFavData = filteredData.filter((item: any) => (
     item.mostFav === "TRUE"
   ))
-  const brands = ["Adidas", "Jordan", "Nike", "New Balance", "Ugg", "Yeezy"];
+  const brands = ["Adidas", "Jordan", "Nike", "New Balance", "UGG", "Yeezy"];
   return (
     <>
       <Header />
