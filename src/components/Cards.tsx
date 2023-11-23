@@ -45,21 +45,26 @@ const Cards = ({ name, data, cols }: { name: any, data: any, cols: number}) => {
   // Применяем функцию объединения данных
   const combinedData = combineProducts(data);
   const commonCardJSX = (item: any, index: any) => (
-    <div className='flex flex-col items-center' key={index}>
-      <div className='w-auto h-auto bg-white flex justify-center'>
-        <img src={item.img ? item.img : '/noimage.png'} />
-      </div>
-      <p className='cardsText lg:text-lg text-xs text-center h-8 lg:h-12'>{item.modelName}</p>
-      <p className='priceText  lg:text-lg text-xs text-center'>От {item.salePrice}₽</p>
-      <div className="w-full h-auto flex flex-row justify-center items-start">
-        <div className="left-0 top-[7px]  text-black text-xl font-normal font-['Open Sans'] leading-3 font-bold p-1">EU</div>
-        <div className='flex flex-wrap'>
-        {item.sizeEU.map((size: any, index: number)=>(
-        <div key={index} className="left-[27px] top-[5px]  text-black text-xs font-normal font-['Open Sans']  border border-neutral-200 leading-none p-1">{size}</div>
+<div className='flex flex-col items-center' key={index}>
+  <div className='w-auto h-auto bg-white flex justify-center'>
+    <img src={item.img ? item.img : '/noimage.png'} />
+  </div>
+  <div className="flex flex-col justify-between items-center h-[80px] md:h-auto">
+    <p className='cardsText lg:text-lg text-xs text-center h-8 lg:h-12'>{item.modelName}</p>
+    <div>
+    <p className='priceText lg:text-lg text-xs text-center'>От {item.salePrice}₽</p>
+    <div className="w-full h-auto flex flex-row justify-center items-start">
+      <div className="left-0 top-[7px]  text-black text-xl font-normal font-['Open Sans'] leading-3 font-bold p-1">EU</div>
+      <div className='flex flex-wrap'>
+        {item.sizeEU.map((size: any, index: number) => (
+          <div key={index} className="left-[27px] top-[5px]  text-black text-xs font-normal font-['Open Sans']  border border-neutral-200 leading-none p-1">{size}</div>
         ))}
-          </div>
+      </div>
       </div>
     </div>
+  </div>
+</div>
+
   );
 
   const filteredCards = showAllModels
