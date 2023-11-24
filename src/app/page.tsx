@@ -8,7 +8,7 @@ const fetchData = () =>
   fetch(
     'https://opensheet.elk.sh/1SKKEFQiYRQ-ZVCRIE00r-kw77todBaAY2MSWE9W6VIY/list',
     {
-      next: { revalidate: 60 },
+      next: { revalidate: 1800 },
     }
   ).then((res) => res.json())
 
