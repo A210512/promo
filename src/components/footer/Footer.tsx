@@ -25,11 +25,11 @@ export default function Footer() {
                 Telegram
               </Link>
               <Link
-                href='https:/instagram.com/yoodjee'
+                href='https://wa.me/79804238759'
                 target='_blank'
                 className='button white fursNeue'
               >
-                Instagram
+                WhatsApp
               </Link>
             </div>
           </div>

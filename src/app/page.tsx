@@ -8,7 +8,7 @@ const fetchData = () =>
   fetch(
     'https://opensheet.elk.sh/1SKKEFQiYRQ-ZVCRIE00r-kw77todBaAY2MSWE9W6VIY/list',
     {
-      next: { revalidate: 3600 },
+      next: { revalidate: 60 },
     }
   ).then((res) => res.json())
 
@@ -34,8 +34,8 @@ export default async function Home() {
       <main className='wrapper  mt-5 xl:mt-[50px] scroll-smooth bg-white'>
         <div>
           <Brands />
-          <Cards name={'Популярные модели'} data={mostFavData} cols={3} />
-          <Cards name={'Скидки до 70%'} data={bigSaleData} cols={3} />
+          <Cards name={'Most popular'} data={mostFavData} cols={3} />
+          <Cards name={'Big sale'} data={bigSaleData} cols={3} />
           {brands.map((brandName, index) => {
             const brandData = filteredData.filter((item: any) =>
               item.type.includes(brandName)

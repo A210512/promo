@@ -67,9 +67,12 @@ const Cards = ({
           {item.modelName}
         </p>
         <div className=''>
-          <p className='priceText lg:text-lg  text-center'>
-            {item.salePrice} ₽
-          </p>
+          <div className='priceText lg:text-lg  text-center '>
+            <span className='mr-[10px]'>{item.salePrice} ₽</span>
+            <s style={{ fontSize: '14px', color: '#ABA9A9' }}>
+              {item.oldPrice} ₽
+            </s>
+          </div>
           <div className='w-full h-auto flex flex-row justify-center'>
             <div className="left-0 top-[7px]  text-black text-xs lg:fz-14 font-normal font-['Open Sans'] leading-3 font-bold p-1">
               EU
@@ -97,7 +100,7 @@ const Cards = ({
     return <div></div>
   }
   return (
-    <div id={name}>
+    <div id={name} className='pt-[55px]'>
       <div className='customText mt-5 fursNeue'>{name}</div>
       <div
         className={`mt-5 grid grid-cols-2 ${
@@ -117,7 +120,7 @@ const Cards = ({
           {showAllModels ? 'СКРЫТЬ МОДЕЛИ' : 'ВСЕ МОДЕЛИ'}
         </p>
       </a>
-      <div className='w-auto h-px my-[40px] border border-neutral-200'></div>
+      <div className='w-auto h-px mt-[40px] border border-neutral-200'></div>
     </div>
   )
 }
