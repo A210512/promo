@@ -1,75 +1,43 @@
-import Brands from '@/components/Brands'
-import Cards from '@/components/Cards'
-import Phone from '@/components/Phone'
-import Footer from '@/components/footer/Footer'
-import Header from '@/components/header/Header'
-import Script from 'next/script'
+import Image from 'next/image'
+import styles from '../components/footer/footer.module.scss'
+import Link from 'next/link'
 
-const fetchData = () =>
-  fetch(
-    'https://opensheet.elk.sh/1SKKEFQiYRQ-ZVCRIE00r-kw77todBaAY2MSWE9W6VIY/list',
-    {
-      next: { revalidate: 1800 },
-    }
-  ).then((res) => res.json())
-
-export default async function Home() {
-  const data = await fetchData()
-  const filteredData = data.filter(
-    (item: any) =>
-      item.blackFriday === 'TRUE' &&
-      (item.warehouse === 'Novokuznetskaya' ||
-        item.warehouse === 'Novokuznetskaya - consig') &&
-      item.status === 'В продаже'
-  )
-  const mostFavData = filteredData.filter(
-    (item: any) => item.mostFav === 'TRUE'
-  )
-  const bigSaleData = filteredData.filter(
-    (item: any) => item.bigSale === 'TRUE'
-  )
-  const brands = ['Adidas', 'Jordan', 'Nike', 'New Balance', 'UGG', 'Yeezy']
+const Home = () => {
   return (
-    <>
-      <Header />
-      <main className='wrapper  mt-5 xl:mt-[50px] scroll-smooth bg-white'>
-        <div>
-          <Brands />
-          <Cards name={'Most popular'} data={mostFavData} cols={3} />
-          <Cards name={'Big sale'} data={bigSaleData} cols={3} />
-          {brands.map((brandName, index) => {
-            const brandData = filteredData.filter((item: any) =>
-              item.type.includes(brandName)
-            )
-            const cols = index % 2 === 0 ? 3 : 4
-            return (
-              <Cards
-                key={index}
-                name={brandName}
-                data={brandData}
-                cols={cols}
-              />
-            )
-          })}
+    <div className='bg-gradient-to-r from-gray-300 to-gray-100'>
+      <div className='flex items-center flex-col gap-10 justify-center h-[100vh] '>
+        <Image
+          src='/yoodjee_logo.svg'
+          width={300}
+          height={100}
+          alt='yoodjee logo'
+        />
+        <div className={styles.button_block}>
+          <Link
+            href='https://intagram.com/yoodjee'
+            target='_blank'
+            className='button white fursNeue'
+          >
+            Instagram
+          </Link>
+          <Link
+            href='https://t.me/theyoodjee'
+            target='_blank'
+            className='button white fursNeue'
+          >
+            Telegram
+          </Link>
+          <Link
+            href='https://wa.me/79804238759'
+            target='_blank'
+            className='button white fursNeue'
+          >
+            WhatsApp
+          </Link>
         </div>
-      </main>
-      <Footer />
-      <Phone />
-
-      <Script id='metrika-counter' strategy='afterInteractive'>
-        {`(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-   m[i].l=1*new Date();
-   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-   ym(95671241, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true,
-        webvisor:true
-   });`}
-      </Script>
-    </>
+      </div>
+    </div>
   )
 }
+
+export default Home
