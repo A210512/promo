@@ -12,9 +12,7 @@ export default function Footer() {
               Не нашли нужную модель?
             </p>
             <p className={`fursNeue ${styles.title_sub}`}>
-              Напишите нам, мы найдем ее для Вас <br /> и оформим индивидуальный
-              <br />
-              заказ со скидкой 10%.
+              Напишите нам и мы составим подборку в вашем размере
             </p>
             <div className={styles.button_block}>
               <Link
