@@ -56,7 +56,7 @@ const Brands = () => {
             className='xl:w-[85px] xl:h-[76px] w-[54px] h-[48px]'
           />
         </a>
-        <a
+        {/* <a
           href='#UGG'
           className='border border-[#E4E4E4] flex justify-center p-5'
         >
@@ -64,7 +64,7 @@ const Brands = () => {
             src='/brands/ugg.svg'
             className='xl:w-[85px] xl:h-[76px] w-[54px] h-[48px]'
           />
-        </a>
+        </a> */}
       </div>
     </div>
   )
